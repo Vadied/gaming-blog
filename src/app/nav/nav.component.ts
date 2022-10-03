@@ -14,6 +14,6 @@ export class NavComponent implements OnInit {
   openModal($event: MouseEvent): void {
     $event.preventDefault();
 
-    this.modal.toggleModal();
+    this.modal.toggleModal("auth");
   }
 }
