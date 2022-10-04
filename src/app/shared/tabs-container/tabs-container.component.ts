@@ -1,4 +1,10 @@
-import { Component, AfterContentInit, ContentChildren, QueryList, Input } from '@angular/core';
+import {
+  Component,
+  AfterContentInit,
+  ContentChildren,
+  QueryList,
+  Input,
+} from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 
 @Component({
@@ -12,14 +18,14 @@ export class TabsContainerComponent implements AfterContentInit {
   constructor() {}
 
   ngAfterContentInit(): void {
-    const activeTabs = this.tabs?.filter(t => t.active);
+    const activeTabs = this.tabs?.filter((t) => t.active);
+    if (activeTabs?.length) return;
 
-    if(!activeTabs || !activeTabs.length) this.selectTab(this.tabs!.first)
-
+    this.selectTab(this.tabs!.first);
   }
 
   selectTab(tab: TabComponent) {
-    this.tabs?.forEach(t => t.active = false);
+    this.tabs?.forEach((t) => (t.active = false));
 
     tab.active = true;
 
