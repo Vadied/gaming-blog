@@ -32,8 +32,10 @@ export class UploadComponent implements OnDestroy {
 
   task?: AngularFireUploadTask;
 
-  title = new FormControl('', [Validators.required, Validators.minLength(3)]);
-
+  title = new FormControl('', {
+    validators: [Validators.required, Validators.minLength(3)],
+    nonNullable: true,
+  });
   uploadForm = new FormGroup({ title: this.title });
 
   constructor(
@@ -94,6 +96,7 @@ export class UploadComponent implements OnDestroy {
             title: this.title.value as string,
             fileName: `${clipFileName}.mp4`,
             url,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           };
 
           const clipDocRef = await this.ClipService.createClip(clip);
@@ -107,8 +110,8 @@ export class UploadComponent implements OnDestroy {
           }, 1000);
         },
         error: (error) => {
-          this.uploadForm.enable();
           console.error(error);
+          this.uploadForm.enable();
           this.inSubmission = false;
           this.alertMsg = 'Error, pls retry';
           this.alertColor = 'red';
