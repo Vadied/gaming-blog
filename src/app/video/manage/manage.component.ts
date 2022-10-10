@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 import { ClipService } from 'src/app/services/clip.service';
 import { ModalService } from 'src/app/services/modal.service';
@@ -16,19 +16,23 @@ export class ManageComponent implements OnInit {
   videoOrder = '1';
   clips: IClip[] = [];
   activeClip: IClip | null = null;
+  sort$: BehaviorSubject<string>;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private clipService: ClipService,
     private modal: ModalService
-  ) {}
+  ) {
+    this.sort$ = new BehaviorSubject(this.videoOrder);
+  }
 
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe((params: Params) => {
+    this.route.queryParams.subscribe((params: Params) => {
       this.videoOrder = params['sort'] === '2' ? params['sort'] : '1';
+      this.sort$.next(this.videoOrder)
     });
-    this.clipService.getUserClips().subscribe((docs: any) => {
+    this.clipService.getUserClips(this.sort$).subscribe((docs: any) => {
       this.clips = docs.map((doc: any) => ({ doID: doc.id, ...doc.data() }));
       // this.clips = [];
 
@@ -56,14 +60,16 @@ export class ManageComponent implements OnInit {
   }
 
   update($event: IClip) {
-    const clip = this.clips.find((c) => c.docID == $event.docID) || null;
+    const clip = this.clips.find((c) => c.docID === $event.docID) || null;
     if (!clip) return;
 
     clip.title = $event.title;
   }
 
-  deleteClip($event: Event, clip: IClip) {
+  async deleteClip($event: Event, clip: IClip) {
     $event.preventDefault();
-    this.clipService.deleteClip(clip);
+
+    await this.clipService.deleteClip(clip);
+    this.clips = this.clips.filter((c) => c.docID !== clip.docID);
   }
 }
