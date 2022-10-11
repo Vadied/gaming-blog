@@ -1331,6 +1331,21 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.5.tgz#91aef76d332cdc7c8942b600fa2307f3387e6f82"
   integrity sha512-UHkDFCfSGTuXq08oQltXxSZmH1TXyWsL+4QhZDWvvLl6mEJQqk3u7/wq1LjhrrAXYIllaTtRSzUXl4Olkf2J8A==
 
+"@ffmpeg/core@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@ffmpeg/core/-/core-0.11.0.tgz#fc24fe5af587f83cd2575d0e45de455d8eed9ba9"
+  integrity sha512-9Tt/+2PMpkGPXUK8n6He9G8Y+qR6qmCPSCw9iEKZxHHOvJ9BE/r0Fccj+YgDZTlyu6rXxc9x6EqCaFBIt7qzjA==
+
+"@ffmpeg/ffmpeg@^0.11.5":
+  version "0.11.5"
+  resolved "https://registry.yarnpkg.com/@ffmpeg/ffmpeg/-/ffmpeg-0.11.5.tgz#841ab8f0d7298b343723e5616a2f64ee443d2b2d"
+  integrity sha512-btdfI4bJ7Whqi10GJPcvvIfg22sN9LU5qw7Dbmpqts12enYEWWym+i1TBj1emvwIkDa2yxr61P2HECaELQWjGA==
+  dependencies:
+    is-url "^1.2.4"
+    node-fetch "^2.6.1"
+    regenerator-runtime "^0.13.7"
+    resolve-url "^0.2.1"
+
 "@firebase/analytics-compat@0.1.13":
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/@firebase/analytics-compat/-/analytics-compat-0.1.13.tgz#61e1d6f9e4d033c3ed9943d91530eb3e0f382f92"
@@ -2090,6 +2105,11 @@
   version "18.8.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.8.2.tgz#17d42c6322d917764dd3d2d3a10d7884925de067"
   integrity sha512-cRMwIgdDN43GO4xMWAfJAecYn8wV4JbsOGHNfNUIDiuYkUYAR5ec4Rj7IO2SAhFPEfpPtLtUTbbny/TCT7aDwA==
+
+"@types/node@^18.8.3":
+  version "18.8.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.8.3.tgz#ce750ab4017effa51aed6a7230651778d54e327c"
+  integrity sha512-0os9vz6BpGwxGe9LOhgP/ncvYN5Tx1fNcd2TM3rD/aCGBkysb+ZWpXEocG24h6ZzOi13+VB8HndAQFezsSOw1w==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -4395,6 +4415,11 @@ is-unicode-supported@^0.1.0:
   resolved "https://registry.yarnpkg.com/is-unicode-supported/-/is-unicode-supported-0.1.0.tgz#3f26c76a809593b52bfa2ecb5710ed2779b522a7"
   integrity sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==
 
+is-url@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
+  integrity sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==
+
 is-what@^3.14.1:
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/is-what/-/is-what-3.14.1.tgz#e1222f46ddda85dead0fd1c9df131760e77755c1"
@@ -6101,7 +6126,7 @@ regenerate@^1.4.2:
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
 
-regenerator-runtime@0.13.9, regenerator-runtime@^0.13.4:
+regenerator-runtime@0.13.9, regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
   version "0.13.9"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
   integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
@@ -6177,6 +6202,11 @@ resolve-url-loader@5.0.0:
     loader-utils "^2.0.0"
     postcss "^8.2.14"
     source-map "0.6.1"
+
+resolve-url@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
+  integrity sha512-ZuF55hVUQaaczgOIwqWzkEcEidmlD/xl44x1UZnhOXcYuFN2S6+rcxpG+C1N3So0wvNI3DmJICUFfu2SxhBmvg==
 
 resolve@1.22.1, resolve@^1.1.7, resolve@^1.14.2, resolve@^1.22.1:
   version "1.22.1"
